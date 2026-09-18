@@ -1,0 +1,40 @@
+{
+  // 부록 D — 실제 키 이름·옵션은 사용 중인 wrangler 버전 문서로 한 번 확인할 것.
+  "name": "chinese-textbook",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-01",
+
+  // 정적 파일(프론트)과 API를 같은 Worker에서 서빙 → SameSite=Strict 쿠키, CORS 불필요
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    // /api/* 는 Worker가 먼저 처리하고, 나머지는 정적 파일로 폴백 (SPA 라우팅 포함)
+    "run_worker_first": ["/api/*"],
+    "not_found_handling": "single-page-application"
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "textbook",
+      "database_id": "<wrangler d1 create textbook 로 발급된 ID>",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  "kv_namespaces": [
+    { "binding": "SESSIONS", "id": "<wrangler kv namespace create SESSIONS 로 발급된 ID>" }
+  ],
+
+  // 별도 시크릿 없음 — 세션이 KV 랜덤 ID 방식이라 서명 키가 필요 없다 (4장)
+  "observability": { "enabled": true },
+
+  "env": {
+    "staging": {
+      "d1_databases": [
+        { "binding": "DB", "database_name": "textbook-staging", "database_id": "<ID>", "migrations_dir": "migrations" }
+      ],
+      "kv_namespaces": [{ "binding": "SESSIONS", "id": "<ID>" }]
+    }
+  }
+}

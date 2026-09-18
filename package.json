@@ -1,0 +1,20 @@
+{
+  "name": "chinese-textbook-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "중국어 온라인 교재 — Cloudflare Workers + D1 백엔드 (M1~M3)",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "test": "node --experimental-sqlite --test test/*.test.mjs",
+    "bench:pbkdf2": "node scripts/bench-pbkdf2.mjs",
+    "seed:teacher": "node scripts/seed-teacher.mjs",
+    "migrate:prototype": "node scripts/migrate-prototype.mjs",
+    "db:init:local": "wrangler d1 migrations apply textbook --local",
+    "db:init:remote": "wrangler d1 migrations apply textbook --remote",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {}
+}

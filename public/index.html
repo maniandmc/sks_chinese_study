@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>중국어 온라인 교재</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ===== 헤더 ===== -->
+    <header class="app-header">
+      <div class="header-left">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="메뉴 열기"></button>
+        <div class="brand">
+          <div class="brand-mark zh">汉</div>
+          <span class="brand-name">중국어 온라인 교재</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-search">
+          <span id="search-icon-header"></span>
+          <input type="text" id="header-search-input" placeholder="단어 검색" readonly>
+        </div>
+        <button class="icon-btn" id="edit-mode-toggle-btn" aria-label="편집 모드 켜기"></button>
+        <button class="icon-btn" id="theme-toggle-btn" aria-label="테마 전환"></button>
+      </div>
+    </header>
+
+    <div class="app-body">
+
+      <!-- ===== 사이드바 배경(모바일) ===== -->
+      <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+      <!-- ===== 사이드바 ===== -->
+      <nav class="sidebar" id="sidebar">
+        <div class="nav-group">
+          <button class="nav-item" data-view="home" onclick="App.navigate('home')"></button>
+          <button class="nav-item" data-view="vocabulary" onclick="App.navigate('vocabulary')"></button>
+          <button class="nav-item" data-view="bookmarks" onclick="App.navigate('bookmarks')"></button>
+        </div>
+        <div class="sidebar-divider"></div>
+        <p class="sidebar-label">단원 목록</p>
+        <div class="nav-group" id="sidebar-lesson-list"></div>
+        <div class="sidebar-divider"></div>
+        <div class="nav-group">
+          <button class="nav-item" data-view="admin" onclick="App.navigate('admin')"></button>
+        </div>
+      </nav>
+
+      <!-- ===== 메인 콘텐츠 ===== -->
+      <main class="main-content" id="main-content"></main>
+
+      <!-- ===== 오른쪽 정보 패널 (PC 전용) ===== -->
+      <aside class="info-panel" id="info-panel"></aside>
+
+    </div>
+  </div>
+
+  <!-- ===== 전역 검색 오버레이 ===== -->
+  <div class="search-overlay" id="search-overlay">
+    <div class="search-overlay-panel">
+      <div class="search-overlay-input-row">
+        <span id="search-icon-holder"></span>
+        <input type="text" id="search-overlay-input" placeholder="단어, 병음, 뜻으로 검색">
+        <button class="search-overlay-close" id="search-overlay-close">닫기</button>
+      </div>
+      <div class="search-overlay-results" id="search-overlay-results"></div>
+    </div>
+  </div>
+
+  <!-- ===== Toast ===== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- 로컬(file://) 환경 대비 데이터 번들: fetch 실패 시 자동 사용 -->
+  <script src="data/data-bundle.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/editor-forms.js"></script>
+  <script src="js/reader.js"></script>
+  <script src="js/vocabulary.js"></script>
+  <script src="js/admin.js"></script>
+
+  <script>
+    // 아이콘 주입 (App.ICONS 로드 이후 실행되어야 하므로 DOMContentLoaded에서 처리)
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('hamburger-btn').innerHTML = App.ICONS.menu;
+      document.getElementById('theme-toggle-btn').innerHTML = App.ICONS.moon;
+      document.getElementById('edit-mode-toggle-btn').innerHTML = App.ICONS.edit;
+      document.getElementById('search-icon-holder').innerHTML = App.ICONS.search;
+      document.getElementById('search-icon-header').innerHTML = App.ICONS.search;
+
+      const navItems = document.querySelectorAll('.nav-item[data-view]');
+      const navConfig = [
+        { view: 'home', icon: 'home', label: '홈' },
+        { view: 'vocabulary', icon: 'vocab', label: '단어장' },
+        { view: 'bookmarks', icon: 'bookmark', label: '북마크' },
+        { view: 'admin', icon: 'settings', label: '교재 관리' },
+      ];
+      navItems.forEach((el, i) => {
+        const cfg = navConfig[i];
+        el.innerHTML = `${App.ICONS[cfg.icon]}<span>${cfg.label}</span>`;
+      });
+
+      // 헤더 검색창 클릭 시 오버레이 열기 (readonly라 텍스트 입력 대신 오버레이로 유도)
+      document.getElementById('header-search-input').addEventListener('click', () => App.openSearchOverlay());
+      document.getElementById('search-icon-header').addEventListener('click', () => App.openSearchOverlay());
+    });
+  </script>
+
+</body>
+</html>

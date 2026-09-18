@@ -1,101 +1,122 @@
-# 중국어 온라인 교재 (프로토타입)
+# 중국어 온라인 교재 — 서버 (M1 ~ M3)
 
-HTML5 · CSS3 · Vanilla JavaScript로 만든 반응형 중국어 디지털 교재입니다.
-외부 서버, 프레임워크, 빌드 도구 없이 브라우저에서 바로 실행됩니다.
+설계 문서 v1.1의 **M1(스키마·이관) / M2(인증) / M3(권한 코어)** 구현입니다.
+런타임·테스트 모두 **외부 의존성이 없습니다**(Node 22.5+ 내장 모듈과 Web Crypto만 사용).
 
-## 실행 방법
+```
+migrations/0001_init.sql      6.3 스키마
+scripts/seed-teacher.mjs      부록 C — 시드 교사 생성 / 비번 복구 SQL 생성
+scripts/migrate-prototype.mjs 11장 — 프로토타입 JSON → INSERT SQL
+scripts/bench-pbkdf2.mjs      5.2 — 반복 횟수별 CPU 시간 측정
+src/lib/http.js               8.1 응답 규약, ApiError
+src/lib/router.js             경량 라우터
+src/lib/normalize.js          6.5 병음 정규화 (서버·이관 스크립트 공용)
+src/lib/password.js           5.2 PBKDF2, 상수 시간 비교, 임시 비번
+src/lib/session.js            5.3/5.4 KV 세션 + D1 재검증
+src/lib/permissions.js        7장 권한 코어  ← M3의 핵심
+src/routes/auth.js            8.2 /auth/*
+src/routes/lessons.js         8.4~8.7 읽기 구현 + 쓰기 게이트
+src/worker.js                 4장 — 라우팅·CSRF·정적 서빙
+public/                       기존 프로토타입 (아직 손대지 않음, M6에서 연동)
+test/                         61개 테스트 (스키마·이관·인증·권한 매트릭스)
+```
 
-**방법 1 — 더블클릭으로 바로 열기**
-`index.html`을 더블클릭하면 `file://` 경로로 열립니다.
-이 경우 브라우저 보안 정책 때문에 `fetch()`로 `data/*.json`을 읽을 수 없는데,
-`data/data-bundle.js`가 동일한 내용을 자동으로 대신 제공하므로 정상 작동합니다.
+## 실행
 
-**방법 2 — 로컬 서버로 열기 (권장)**
 ```bash
-cd chinese-textbook
-python3 -m http.server 8000
-# 브라우저에서 http://localhost:8000 접속
-```
-서버로 열면 `data/*.json`을 실제로 fetch해서 사용합니다.
-
-## 폴더 구조
-
-```
-chinese-textbook/
-├── index.html              앱 셸 (헤더/사이드바/본문/정보패널)
-├── css/style.css           전체 스타일 (라이트/다크 테마, 반응형)
-├── js/
-│   ├── app.js               데이터 로딩, 라우팅, 테마, 편집 모드, 진행률, 북마크, 전역 검색
-│   ├── views.js              홈 화면, 북마크 화면
-│   ├── editor-forms.js        문장/단어/문법/문제/단원 편집 폼 (관리자·인라인 편집 공용)
-│   ├── reader.js              교재 화면: 본문 / 문법 / 연습문제 탭 (+ 인라인 편집)
-│   ├── vocabulary.js          단어 탭(표·카드), 단어 상세, 전체 단어장 (+ 인라인 편집)
-│   └── admin.js               교재 관리 화면: 단원 CRUD, 상세 편집, JSON 내보내기
-├── data/
-│   ├── lessons.json          단원 목록(메타데이터)
-│   ├── lesson01.json          1과 콘텐츠 (본문/단어/문법/문제)
-│   ├── lesson02.json          2과 샘플
-│   ├── lesson03.json          3과 샘플
-│   └── data-bundle.js         위 JSON과 동일한 내용의 JS 번들 (file:// fallback용)
-└── assets/                   이미지·오디오 (현재 비어 있음, 필요 시 추가)
+node --test test/*.test.mjs      # 전체 테스트 (약 1초)
+node scripts/bench-pbkdf2.mjs    # 반복 횟수별 CPU 시간
 ```
 
-## 콘텐츠 편집 — 두 가지 방법
+### 처음 세팅 (로컬)
 
-**1) 학습 화면에서 바로 편집 (일상적으로 쓰는 방법)**
+```bash
+npx wrangler d1 create textbook
+npx wrangler kv namespace create SESSIONS
+# 발급된 ID를 wrangler.jsonc에 채운 뒤
+npx wrangler d1 migrations apply textbook --local
 
-헤더의 연필 아이콘을 누르면 **편집 모드**가 켜집니다. 편집 모드 상태에서는 본문·단어·문법·문제 탭 어디서든 그 자리에서 추가·수정·삭제할 수 있습니다.
-- 본문 탭: 문장에 마우스를 올리면 수정·삭제 버튼이 나타나고, 하단의 "문장 추가" 버튼으로 새 문장을 넣습니다.
-- 단어 탭: 각 행/카드에 수정·삭제 버튼, 상단에 "단어 추가" 버튼.
-- 문법·연습문제 탭도 동일한 방식입니다.
+# 시드 교사 (평문 비번은 stdin으로만 전달)
+printf '%s' '임시비번8자이상' | node scripts/seed-teacher.mjs \
+  --login teacher1 --name '김선생' --out seed.sql
+npx wrangler d1 execute textbook --local --file seed.sql && rm seed.sql
 
-편집 모드는 지금은 로그인 없이 **이 브라우저를 쓰는 누구나** 켜고 끌 수 있습니다. 편집 모드 자체의 on/off 상태도 이 브라우저에 저장되어 새로고침해도 유지됩니다.
+# 프로토타입 교재 이관
+node scripts/migrate-prototype.mjs --data public/data \
+  --teacher-login teacher1 --class-name '샘플 클래스' --out sample.sql
+npx wrangler d1 execute textbook --local --file sample.sql
 
-**2) 교재 관리 화면 (구조적으로 한눈에 보며 편집하고 싶을 때)**
+npx wrangler dev
+```
 
-사이드바 맨 아래 **"교재 관리"** 메뉴에서는 단원 목록을 왼쪽에 두고 오른쪽에서 문장/단어/문법/문제를 표 형태로 관리할 수 있습니다. 단원 추가·정보 수정·삭제도 이 화면에서 합니다.
+## 완료 기준 대비 상태
 
-> 지금은 이 화면도 로그인 없이 누구나 열 수 있습니다. 나중에 로그인 기능이 추가되면 "교재 관리" 메뉴는 관리자 권한이 있는 계정에서만 보이도록 제한할 계획입니다 (학생 계정에는 학습 화면의 인라인 편집만 남기는 방향). `App.getEditMode`/`App.setEditMode`와 `App.navigate('admin', ...)` 진입 지점 두 곳에 권한 체크를 끼워 넣으면 되도록 코드를 구성해뒀습니다.
+| 단계 | DoD | 상태 |
+|---|---|---|
+| M1 | 11.3 검증 쿼리 통과 | ✅ `migrate.test.mjs` — 단원 3 / 문장 10 / 단어 14 / 문법 5 / 퀴즈 6 |
+| M1 | CASCADE / SET NULL / CHECK 확인 | ✅ `schema.test.mjs` (단, 아래 "남은 확인" 참고) |
+| M2 | 5.4의 5단계 검사 동작 | ✅ `auth.test.mjs` |
+| M2 | 정지 후 다음 요청에서 401 | ✅ (KV 세션이 살아 있어도 D1 조회로 차단) |
+| M2 | **실제 배포 환경에서 로그인 성공(CPU 확인)** | ⏳ 배포 필요 — 아래 ①번 |
+| M3 | 매트릭스 전 셀 통과 | ✅ `permissions.test.mjs` (한 셀은 의도적으로 다름 — ③번) |
+| M3 | 타 단원 하위 ID 우회 차단 | ✅ `requireChildRow` + 테스트 |
 
-**두 방법은 완전히 같은 데이터를 씁니다** — 학습 화면에서 편집한 내용이 교재 관리 화면에도, 그 반대도 즉시 반영됩니다.
+### 쓰기 엔드포인트가 501을 돌려주는 이유
 
-## 저장 방식 및 JSON 내보내기
+M3의 목표는 "권한 게이트 확정"입니다. 그래서 `/lessons/:id` 계열 **쓰기 경로의 라우트와 게이트는
+전부 자리에 있고**, 본체만 `501 NOT_IMPLEMENTED`입니다. 테스트는 "게이트를 통과했다"를 501로 확인합니다.
+M4/M5에서 핸들러를 채운 뒤 `permissions.test.mjs`의 `GATE_PASSED` 상수를 200/201/204로 바꾸면
+그대로 회귀 테스트가 됩니다.
 
-- 편집 내용은 **입력 즉시 이 브라우저의 localStorage에 저장**됩니다. 새로고침해도 유지됩니다.
-- 다만 localStorage는 **이 브라우저·이 기기에만** 저장됩니다. 다른 브라우저·기기·배포된 사이트에는 자동으로 넘어가지 않습니다.
-- **영구 반영(파일로 남기기)**: 교재 관리 화면의 "이 단원 내보내기" 또는 "전체 JSON 내보내기"를 누르면 `lessonNN.json`(또는 전체) 파일이 다운로드됩니다. 이 파일을 프로젝트의 `data/` 폴더에 덮어쓰면 어느 브라우저·기기에서 열어도 그 내용이 기본값으로 보입니다.
-  - **로컬(file://)로 열어서 계속 쓸 계획이라면** `data/data-bundle.js`의 `window.__TEXTBOOK_BUNDLE__` 객체도 같은 내용으로 함께 갱신해야 합니다 (서버로 열 경우에는 필요 없음).
-- **편집 내용 초기화**: 교재 관리 화면 상단의 "편집 내용 전체 초기화" 버튼을 누르면 localStorage의 모든 편집 내용이 삭제되고 원본 데이터(`data/*.json`)로 되돌아갑니다. 되돌릴 수 없으니 초기화 전에 필요한 내용은 먼저 내보내기 해두세요.
+## 결정이 필요하거나 알아두셔야 할 것
 
-## 새 단원(콘텐츠)을 수동으로 JSON에 추가하는 방법 (대안)
+**① PBKDF2 100,000회는 무료 플랜에서 위험합니다.**
+로컬 측정값이 100,000회에서 약 17.6ms입니다(50,000회 ≈ 9.3ms). 무료 플랜의 요청당 CPU 제한이
+약 10ms라 로그인이 시간 초과될 가능성이 높습니다. 선택지는 (a) 반복 횟수를 50,000 이하로 낮추기
+(b) 유료 플랜. `users.password_iters`가 사용자별 컬럼이라 **나중에 계정을 건드리지 않고 바꿀 수 있습니다.**
+배포 후 실제 로그인으로 한 번 측정하고 정하시면 됩니다.
 
-교재 관리·편집 모드를 쓰지 않고 JSON을 직접 편집하고 싶다면:
+**② 잠금 응답은 계정 존재를 약간 노출합니다.**
+5.5는 "존재하지 않는 ID도 같은 응답"을 요구하지만, 10.2는 로그인 화면에 잠금 메시지를 요구합니다.
+현재는 비밀번호 오류·없는 계정 = 동일한 401, 잠긴 계정만 429로 구분합니다. 노출을 완전히 막으려면
+잠금도 401로 합치면 되는데, 그러면 사용자가 "왜 맞는 비번이 안 되는지" 알 수 없습니다.
 
-1. `data/lessonNN.json` 형식으로 새 파일을 만듭니다 (`lesson01.json` 구조 참고).
-2. `data/lessons.json`의 `lessons` 배열에 새 항목을 추가합니다.
-3. **로컬(file://)에서도 보이게 하려면** `data/data-bundle.js`의
-   `window.__TEXTBOOK_BUNDLE__` 객체에도 같은 내용을 똑같이 추가해야 합니다.
-   (서버로만 열 경우에는 이 단계가 필요 없습니다.)
+**③ 14.2 매트릭스 한 셀을 다르게 구현했습니다.**
+"클래스 멤버 추가/제거 → 학생N(미가입) 403"은 7.3의 "읽기 권한 없는 리소스는 404"와 충돌합니다.
+403을 주면 클래스의 존재가 새어 나가므로 **미가입 학생·타 교사는 404**, 가입 학생만 403으로 했습니다.
+문서 쪽을 고치시는 게 좋겠습니다.
 
-`sentences[].id`, `vocabulary[].word`, `quiz[].id`는 북마크·검색·진행률 저장에
-쓰이는 식별자이므로 단원마다 겹치지 않게 정해주세요.
+**④ M0 조사 결과 — 프론트에 XSS 구멍이 있습니다.**
+`reader.js`(7), `vocabulary.js`(11), `views.js`(3) = 총 21곳이 `innerHTML`에 콘텐츠를 그대로
+끼워 넣는데 `escapeHTML` 호출이 **0회**입니다(`admin.js`·`editor-forms.js`는 escape를 씁니다).
+지금은 혼자 쓰는 프로토타입이라 무해하지만, 교사가 쓴 콘텐츠를 학생 브라우저가 렌더하는 순간
+저장형 XSS가 됩니다. M6에서 반드시 고쳐야 합니다. 나머지 `App.*` 호출 지점은 아래에 정리했습니다.
 
-## 구현된 기능
+**⑤ `login_id`는 소문자로 저장합니다.** 표시 이름은 `display_name`을 씁니다.
 
-- 반응형 3단 레이아웃 (PC: 사이드바+본문+정보패널 / 태블릿: 정보패널 숨김 / 모바일: 햄버거 메뉴)
-- 본문 문장 클릭 → 병음·번역·듣기(TTS)·문장 저장
-- 병음/번역 개별 토글, 전체 듣기
-- 단어 탭(표/카드 반응형) + 단원 내 검색, 클릭 시 상세정보
-- 사이트 전체 단어 검색 (중국어/병음/뜻/품사/단원, 성조 무시 검색 지원)
-- 문법 카드, 인터랙티브 연습문제(정답 즉시 확인)
-- localStorage 기반 북마크(단어/문장), 학습 진행률, 다크모드
-- **학습 화면 인라인 편집 모드** + **교재 관리 화면** — 위 "콘텐츠 편집" 참고
-- 새로고침해도 저장 내용 유지
+**⑥ 남은 확인**: 테스트의 D1은 `node:sqlite` 위에 얹은 shim입니다(외래 키 ON).
+실제 D1에서 CASCADE/배치가 같은지는 `wrangler d1` 환경에서 한 번 확인하는 게 좋습니다 —
+M1 DoD에 이미 그렇게 적혀 있습니다.
 
-## 참고 사항
+## M0 조사 결과 (부록 B 보강용)
 
-- 문장 듣기(TTS)는 브라우저 내장 `speechSynthesis`(중국어 음성)를 사용합니다.
-  브라우저/OS에 따라 중국어 음성 품질이나 지원 여부가 다를 수 있습니다.
-- 현재 데이터는 프로토타입용 샘플(第一课 전체 + 第二·三课 소량)입니다.
-  실제 교재 내용이 준비되면 편집 모드나 교재 관리 화면으로 채우거나, 위 "새 단원 추가하는 방법"에 따라 JSON을 교체/추가하면 됩니다.
-- 지금은 로그인이 없어 편집 권한 구분이 없습니다. 나중에 로그인을 붙일 때 참고할 수 있도록, 편집 가능 여부를 판단하는 지점(`App.getEditMode`, "교재 관리" 라우팅)을 한 곳에 모아뒀습니다.
+`app.js` 외 파일이 호출하는 `App.*` — 데이터 접근 계층 교체 시 영향 받는 지점:
+
+| 호출 | 횟수 | M6에서 |
+|---|---|---|
+| `showToast` / `escapeHTML` / `ICONS` / `renderInfoPanel` / `renderSidebarLessonList` | 111 | 그대로 유지 (UI 유틸) |
+| `getLesson` | 20 | `GET /lessons/:id` + 캐시 (이미 async) |
+| `invalidateCache` | 15 | 쓰기 성공 시 캐시 무효화로 의미 유지 (10.6) |
+| `getLessonsMeta` | 5 | 워크스페이스별 목록 API |
+| `setLessonProgressField` / `getLessonPercent` | 6 | 낙관적 캐시 갱신 + `PUT /lessons/:id/progress` |
+| `toggleBookmark` / `isBookmarked` / `getBookmarks` | 6 | 캐시 + `POST/DELETE /bookmarks` |
+| 엔티티 CRUD(`add/update/delete` × 문장·단어·문법·퀴즈·단원) | 17 | 하위 리소스 API. **단어는 식별자가 `word` → `vocab.id`로 바뀜** |
+| `getAllLessons` | 2 | 제거 → `GET /vocabulary`, `GET /search` |
+| `resetAllEdits` | 1 | 폐기 (3.5) |
+| `exportLesson` / `exportAll` | 2 | 클라이언트 변환 유지 |
+
+## 다음 (M4)
+
+`src/routes/lessons.js`의 501 핸들러를 채우는 작업입니다. 게이트·응답 형태·테스트가 이미
+자리에 있어서, 각 핸들러는 "검증 → 쿼리 → 응답"만 쓰면 됩니다.
+`copy-to-personal`(9.1)만 `db.batch()` 바인딩 파라미터 수를 실제 규모로 확인해야 합니다.
