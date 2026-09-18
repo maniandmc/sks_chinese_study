@@ -1,0 +1,55 @@
+{
+  "id": 2,
+  "title": "第二课",
+  "chineseTitle": "北京的四季",
+  "koreanTitle": "베이징의 사계절",
+  "sentences": [
+    {
+      "id": "l2s1",
+      "chinese": "北京的四季非常分明。",
+      "pinyin": "Běijīng de sìjì fēicháng fēnmíng.",
+      "translation": "베이징의 사계절은 매우 뚜렷하다."
+    },
+    {
+      "id": "l2s2",
+      "chinese": "春天的北京经常刮风。",
+      "pinyin": "Chūntiān de Běijīng jīngcháng guāfēng.",
+      "translation": "봄철 베이징에는 자주 바람이 분다."
+    }
+  ],
+  "vocabulary": [
+    {
+      "word": "四季",
+      "pinyin": "sìjì",
+      "partOfSpeech": "명사",
+      "meaning": "사계절",
+      "example": "北京的四季非常分明。"
+    },
+    {
+      "word": "分明",
+      "pinyin": "fēnmíng",
+      "partOfSpeech": "형용사",
+      "meaning": "뚜렷하다, 분명하다",
+      "example": "北京的四季非常分明。"
+    }
+  ],
+  "grammar": [
+    {
+      "id": "g1",
+      "number": "01",
+      "title": "\"经常\" — 자주, 늘",
+      "description": "동작이나 상황이 반복적으로 일어남을 나타내는 부사입니다.",
+      "example": "春天的北京经常刮风。",
+      "translation": "봄철 베이징에는 자주 바람이 분다."
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "\"四季\"의 뜻은?",
+      "options": ["사계절", "날씨", "기온", "계획"],
+      "answerIndex": 0,
+      "explanation": "四季 = 사계절"
+    }
+  ]
+}

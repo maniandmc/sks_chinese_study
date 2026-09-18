@@ -1,0 +1,55 @@
+{
+  "id": 3,
+  "title": "第三课",
+  "chineseTitle": "中国的饮食文化",
+  "koreanTitle": "중국의 음식 문화",
+  "sentences": [
+    {
+      "id": "l3s1",
+      "chinese": "中国的饮食文化历史悠久。",
+      "pinyin": "Zhōngguó de yǐnshí wénhuà lìshǐ yōujiǔ.",
+      "translation": "중국의 음식 문화는 역사가 유구하다."
+    },
+    {
+      "id": "l3s2",
+      "chinese": "不同地区的菜系有很大的差别。",
+      "pinyin": "Bùtóng dìqū de càixì yǒu hěn dà de chābié.",
+      "translation": "지역마다 요리 계통에는 큰 차이가 있다."
+    }
+  ],
+  "vocabulary": [
+    {
+      "word": "饮食",
+      "pinyin": "yǐnshí",
+      "partOfSpeech": "명사",
+      "meaning": "음식, 먹고 마시는 것",
+      "example": "中国的饮食文化历史悠久。"
+    },
+    {
+      "word": "菜系",
+      "pinyin": "càixì",
+      "partOfSpeech": "명사",
+      "meaning": "요리 계통, 요리 계파",
+      "example": "不同地区的菜系有很大的差别。"
+    }
+  ],
+  "grammar": [
+    {
+      "id": "g1",
+      "number": "01",
+      "title": "\"不同\" + 명사 — 다른 ~",
+      "description": "명사 앞에 놓여 서로 다름을 나타내는 표현입니다.",
+      "example": "不同地区的菜系有很大的差别。",
+      "translation": "지역마다 요리 계통에는 큰 차이가 있다."
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "\"饮食\"의 뜻은?",
+      "options": ["의복", "음식", "주거", "교통"],
+      "answerIndex": 1,
+      "explanation": "饮食 = 음식"
+    }
+  ]
+}

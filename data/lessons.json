@@ -1,0 +1,25 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "title": "第一课",
+      "chineseTitle": "中国人的家庭观念",
+      "koreanTitle": "중국인의 가족관념",
+      "file": "lesson01.json"
+    },
+    {
+      "id": 2,
+      "title": "第二课",
+      "chineseTitle": "北京的四季",
+      "koreanTitle": "베이징의 사계절",
+      "file": "lesson02.json"
+    },
+    {
+      "id": 3,
+      "title": "第三课",
+      "chineseTitle": "中国的饮食文化",
+      "koreanTitle": "중국의 음식 문화",
+      "file": "lesson03.json"
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+{
+  "id": 4,
+  "title": "第十二课",
+  "chineseTitle": "中国哲学的背景",
+  "koreanTitle": "중국 철학의 배경",
+  "sentences": [
+    {
+      "id": "s_1789739938063_4kk6s",
+      "chinese": "《论语》中有一段话：“子曰：知者乐水，仁者乐山；知者动，仁者静；知者乐，仁者寿。”",
+      "pinyin": "《Lúnyǔ》 zhōng yǒu yī duàn huà: “Zǐ yuē: zhì zhě yào shuǐ, rén zhě yào shān; zhì zhě dòng, rén zhě jìng; zhì zhě lè, rén zhě shòu.”",
+      "translation": "《논어》에 다음과 같은 구절이 있다. “공자께서 말씀하셨다. 지혜로운 사람은 물을 좋아하고, 어진\n사람은 산을 좋아한다. 지혜로운 사람은 움직이고, 어진 사람은 고요하다. 지혜로운 사람은 즐겁고,\n어진 사람은 장수한다.”"
+    },
+    {
+      "id": "s_1789739982504_s91bf",
+      "chinese": "我认为，这段话暗示着古代中国人和古代希腊人的不同。",
+      "pinyin": "Wǒ rènwéi, zhè duàn huà ànshì zhe gǔdài Zhōngguó rén hé gǔdài Xīlà rén de bùtóng.",
+      "translation": "나는 이 구절이 고대 중국인과 고대 그리스인의 차이를 암시한다고 생각한다."
+    },
+    {
+      "id": "s_1789740092913_c02z8",
+      "chinese": "中国是大陆国家。",
+      "pinyin": "Zhōngguó shì dàlù guójiā.",
+      "translation": "중국은 대륙국가였다."
+    },
+    {
+      "id": "s_1789740121083_28pf6",
+      "chinese": "古代中国人以为，他们的国土就是世界。",
+      "pinyin": "Gǔdài Zhōngguó rén yǐwéi, tāmen de guótǔ jiùshì shìjiè.",
+      "translation": "고대 중국인은 자신들의 영토가 곧 세계라고 여겼다."
+    },
+    {
+      "id": "s_1789740533912_w4xzj",
+      "chinese": "汉语中有两个词语都可以译成“世界”。",
+      "pinyin": "Hànyǔ zhōng yǒu liǎng gè cíyǔ dōu kěyǐ yì chéng “shìjiè”.",
+      "translation": "중국어에는 둘 다 ‘세계’로 번역될 수 있는 두 단어가 있다."
+    },
+    {
+      "id": "s_1789740565206_nxehx",
+      "chinese": "一个是“天下”，另一个是“四海之内”。",
+      "pinyin": "Yī gè shì “tiānxià”, lìng yī gè shì “sìhǎi zhī nèi”.",
+      "translation": "하나는 ‘천하(天下)’이고, 다른 하나는 ‘사해지내(四海之內)’이다."
+    },
+    {
+      "id": "s_1789740586382_kqrk6",
+      "chinese": "海洋国家的人，如希腊人，也许不能理解这两个词语竟然是同义词，但是这种事就发生在汉语里，而且是不无道理的。",
+      "pinyin": "Hǎiyáng guójiā de rén, rú Xīlà rén, yěxǔ bùnéng lǐjiě zhè liǎng gè cíyǔ jìngrán shì tóngyìcí, dànshì zhè zhǒng shì jiù fāshēng zài Hànyǔ lǐ, érqiě shì bù wú dàolǐ de.",
+      "translation": "해양 국가의 사람들, 예컨대 그리스인들은 이 두 단어가 동의어라는 것을 이해하지 못할지도 모른다. 그러나 이런 일은 중국어에서 실제로 일어나며, 이는 일리가 없는 일도 아니다."
+    },
+    {
+      "id": "s_1789740676578_wp9q0",
+      "chinese": "古代中国和希腊的哲学家不仅生活于不同的地理条件，也生活于不同的经济条件。",
+      "pinyin": "Gǔdài Zhōngguó hé Xīlà de zhéxuéjiā bùjǐn shēnghuó yú bùtóng de dìlǐ tiáojiàn, yě shēnghuó yú bùtóng de jīngjì tiáojiàn.",
+      "translation": "고대 중국과 그리스의 철학자들은 서로 다른 지리적 조건에서 살았을 뿐만 아니라 서로 다른 경제적 조건에서도 살았다."
+    },
+    {
+      "id": "s_1789740699370_a81yc",
+      "chinese": "由于中国是大陆国家，中华民族只能以农业为生。",
+      "pinyin": "Yóuyú Zhōngguó shì dàlù guójiā, Zhōnghuá mínzú zhǐnéng yǐ nóngyè wéishēng.",
+      "translation": "중국은 대륙 국가였기 때문에 중화민족은 농업으로만 생계를 유지할 수 있었다."
+    },
+    {
+      "id": "s_1789740739353_259tl",
+      "chinese": "甚至今天中国人口中从事农业的估计占百分之七十到八十。",
+      "pinyin": "Shènzhì jīntiān Zhōngguó rénkǒu zhōng cóngshì nóngyè de gūjì zhàn bǎifēnzhī qīshí dào bāshí.",
+      "translation": "오늘날에도 중국 인구 중 농업에 종사하는 사람이 70~80퍼센트로 추정된다."
+    },
+    {
+      "id": "s_1789740758336_4ylg2",
+      "chinese": "在农业国，土地是财富的根本基础。",
+      "pinyin": "Zài nóngyèguó, tǔdì shì cáifù de gēnběn jīchǔ.",
+      "translation": "농업 국가에서 토지는 부의 근본 기초이다."
+    },
+    {
+      "id": "s_1789741836093_ry2x2",
+      "chinese": "所以贯穿在中国历史中，社会、经济的思想和政策的中心总是围绕着土地的利用和分配。",
+      "pinyin": "Suǒyǐ guànchuān zài Zhōngguó lìshǐ zhōng, shèhuì, jīngjì de sīxiǎng hé zhèngcè de zhōngxīn zǒngshì wéirào zhe tǔdì de lìyòng hé fēnpèi.",
+      "translation": "따라서 중국 역사를 관통해 사회·경제 사상과 정책의 중심은 항상 토지의 이용과 분배를 둘러싸고 있었다."
+    },
+    {
+      "id": "s_1789742030651_zkuip",
+      "chinese": "在这样一种经济中，农业不仅在和平时期重要，在战争时期也一样重要。",
+      "pinyin": "Zài zhè yàng yī zhǒng jīngjì zhōng, nóngyè bùjǐn zài hépíng shíqī zhòngyào, zài zhànzhēng shíqī yě yīyàng zhòngyào.",
+      "translation": "이러한 경제에서 농업은 평화 시기에도 중요했지만 전쟁 시기에도 마찬가지로 중요했다."
+    },
+    {
+      "id": "s_1789742088531_xu121",
+      "chinese": "战国时期（前480-前222)，当时中国分成许多封建王国，每个国家都高度重视所谓的“耕战之术”。",
+      "pinyin": "Zhànguó shíqī (qián sì bā líng - qián èr èr èr), dāngshí Zhōngguó fēnchéng xǔduō fēngjiàn wángguó, měi gè guójiā dōu gāodù zhòngshì suǒwèi de “gēngzhàn zhī shù”.",
+      "translation": "전국 시대(기원전 480~기원전 222) 당시 중국은 여러 봉건 왕국으로 나뉘어 있었고, 각 국가는 이른바 ‘경전지술(耕戰之術)’을 매우 중시했다."
+    },
+    {
+      "id": "s_1789742108176_6fa9y",
+      "chinese": "最后，七雄之一的秦国在耕战两方面都获得优势，结果胜利地征服了其他各国，实现了中国历史上的第一次统一。",
+      "pinyin": "Zuìhòu, qīxióng zhī yī de Qín guó zài gēngzhàn liǎng fāngmiàn dōu huòdé yōushì, jiéguǒ shènglì de zhēngfú le qítā gè guó, shíxiàn le Zhōngguó lìshǐ shàng de dì-yī cì tǒngyī.",
+      "translation": "마침내 칠웅 중 하나인 진나라가 경전 양면에서 우위를 얻었고, 그 결과 다른 여러 나라를 승리로 정복하여 중국 역사상 최초의 통일을 실현했다."
+    },
+    {
+      "id": "s_1789743463583_afyxv",
+      "chinese": "在中国社会、经济思想中，有所谓的“本”“末”之别。",
+      "pinyin": "Zài Zhōngguó shèhuì, jīngjì sīxiǎng zhōng, yǒu suǒwèi de “běn”“wèi” zhī bié.",
+      "translation": "중국의 사회·경제 사상에는 이른바 ‘본(本)’과 ‘말(末)’의 구별이 있다."
+    },
+    {
+      "id": "s_1789743486020_t36b2",
+      "chinese": "“本”指农业，“末”指商业。",
+      "pinyin": "“Běn” zhǐ nóngyè, “mò” zhǐ shāngyè.",
+      "translation": "본’은 농업을 가리키고, ‘말’은 상업을 가리킨다."
+    },
+    {
+      "id": "s_1789743505582_z0y7s",
+      "chinese": "区别本末的理由是，农业关系到生产，而商业只关系到交换。",
+      "pinyin": "Qūbié běnmò de lǐyóu shì, nóngyè guānxì dào shēngchǎn, ér shāngyè zhǐ guānxì dào jiāohuàn.",
+      "translation": "본과 말을 구별하는 이유는 농업이 생산과 관련되는 반면 상업은 교환과만 관련되기 때문이다."
+    },
+    {
+      "id": "s_1789743523207_8srvo",
+      "chinese": "在交换之前，必须先有生产。",
+      "pinyin": "Zài jiāohuàn zhīqián, bìxū xiān yǒu shēngchǎn.",
+      "translation": "교환 이전에는 반드시 생산이 먼저 있어야 한다."
+    },
+    {
+      "id": "s_1789743598157_lfvg9",
+      "chinese": "在农业国家里，农业是生产的主要形式，所以中国古代的社会、经济理论和政策大都是主张“重本轻末”的。",
+      "pinyin": "Zài nóngyè guójiā lǐ, nóngyè shì shēngchǎn de zhǔyào xíngshì, suǒyǐ Zhōngguó gǔdài de shèhuì, jīngjì lǐlùn hé zhèngcè dàdōu shì zhǔzhāng “zhòngběn qīngmò” de.",
+      "translation": "농업 국가에서 농업은 생산의 주요 형태이므로, 중국 고대의 사회·경제 이론과 정책은 대부분 ‘중본경말(重本輕末)’을 주장했다."
+    },
+    {
+      "id": "s_1789744120086_53c42",
+      "chinese": "从事末作的人，即商人，因此都受到轻视。",
+      "pinyin": "Cóngshì mòzuò de rén, jí shāngrén, yīncǐ dōu shòudào qīngshì.",
+      "translation": "말업(末作)에 종사하는 사람, 즉 상인은 따라서 경시되었다."
+    },
+    {
+      "id": "s_1789744137285_az8m5",
+      "chinese": "社会有四个传统的阶级，即士、农、工、商，商是其中最下一个等级。",
+      "pinyin": "Shèhuì yǒu sì gè chuántǒng de jiējí, jí shì, nóng, gōng, shāng, shāng shì qízhōng zuì xià yī gè děngjí.",
+      "translation": "사회에는 전통적으로 네 계급, 즉 사(士)·농(農)·공(工)·상(商)이 있었고, 상은 그중 가장 낮은 등급이었다."
+    },
+    {
+      "id": "s_1789744245274_m1buq",
+      "chinese": "“士”通常就是指当官有职位的人和读书人。",
+      "pinyin": "“Shì” tōngcháng jiùshì zhǐ dāngguān yǒu zhíwèi de rén hé dúshūrén.",
+      "translation": "‘사’는 일반적으로 관직에 있는 사람과 글을 읽는 사람을 가리킨다."
+    },
+    {
+      "id": "s_1789744341693_gtaa6",
+      "chinese": "“农”就是实际耕种土地的农民。",
+      "pinyin": "“Nóng” jiùshì shíjì gēngzhòng tǔdì de nóngmín.",
+      "translation": "‘농’은 실제로 토지를 경작하는 농민을 가리킨다."
+    },
+    {
+      "id": "s_1789744358614_6ivn3",
+      "chinese": "在中国，这是两种光荣的职业。",
+      "pinyin": "Zài Zhōngguó, zhè shì liǎng zhǒng guāngróng de zhíyè.",
+      "translation": "중국에서 이 둘은 영광스러운 직업이었다."
+    },
+    {
+      "id": "s_1789744376748_m2cg6",
+      "chinese": "一个家庭若能“耕读传家”，那是值得自豪的。",
+      "pinyin": "Yī gè jiātíng ruò néng “gēng dú chuán jiā”, nà shì zhídé zìháo de.",
+      "translation": "한 가정이 ‘경독전가(耕讀傳家)’를 할 수 있다면 그것은 자랑할 만한 일이었다."
+    },
+    {
+      "id": "s_1789744396985_4wvgn",
+      "chinese": "“士”虽然本身并不实际耕种土地，可是由于他们通常是地主，他们的命运也系于农业。",
+      "pinyin": "“Shì” suīrán běnshēn bìng bù shíjì gēngzhòng tǔdì, kěshì yóuyú tāmen tōngcháng shì dìzhǔ, tāmen de mìngyùn yě xì yú nóngyè.",
+      "translation": "‘사’는 그 자체로 실제 토지를 경작하지는 않았지만, 그들은 대개 지주였기 때문에 그들의 운명도 농업에 매여 있었다."
+    },
+    {
+      "id": "s_1789744417124_wcpld",
+      "chinese": "收成的好坏关系着他们命运的好坏，所以他们对宇宙的反应，对生活的看法，在本质上就是“农”的反应和看法。",
+      "pinyin": "Shōucheng de hǎohuài guānxì zhe tāmen mìngyùn de hǎohuài, suǒyǐ tāmen duì yǔzhòu de fǎnyìng, duì shēnghuó de kànfǎ, zài běnzhì shàng jiùshì “nóng” de fǎnyìng hé kànfǎ.",
+      "translation": "수확의 좋고 나쁨은 그들 운명의 좋고 나쁨과 관련되었으므로, 그들이 우주에 대해 보이는 반응과 생활에 대한 견해는 본질적으로 ‘농’의 반응과 견해였다."
+    },
+    {
+      "id": "s_1789744440031_agi2q",
+      "chinese": "加上他们所受的教育，他们可以把实际耕种的“农”所感受到而自己又不能表达的东西表达出来。",
+      "pinyin": "Jiāshàng tāmen suǒ shòu de jiàoyù, tāmen kěyǐ bǎ shíjì gēngzhòng de “nóng” suǒ gǎnshòu dào ér zìjǐ yòu bùnéng biǎodá de dōngxi biǎodá chūlái.",
+      "translation": "여기에 그들이 받은 교육이 더해져, 실제로 경작하는 ‘농’이 느끼지만 스스로 표현하지 못하는 것을 표현할 수 있었다."
+    },
+    {
+      "id": "s_1789744456198_hgdnj",
+      "chinese": "这些思想体现在中国古代哲学、文学著作中，或其他艺术形式中。",
+      "pinyin": "Zhèxiē sīxiǎng tǐxiàn zài Zhōngguó gǔdài zhéxué, wénxué zhùzuò zhōng, huò qítā yìshù xíngshì zhōng.",
+      "translation": "이러한 사상은 중국 고대 철학·문학 저작이나 기타 예술 형식에 반영되었다."
+    },
+    {
+      "id": "s_1789744476511_eekq0",
+      "chinese": "农民只能靠土地为生，而土地是不能移动的，作为“士”的地主也是如此，除非他有特殊的才能，否则他们只能祖祖辈辈生活在那个地方。",
+      "pinyin": "Nóngmín zhǐnéng kào tǔdì wéishēng, ér tǔdì shì bùnéng yídòng de, zuòwéi “shì” de dìzhǔ yě shì rúcǐ, chúfēi tā yǒu tèshū de cáinéng, fǒuzé tāmen zhǐnéng zǔzǔbèibèi shēnghuó zài nàge dìfang.",
+      "translation": "농민은 오직 토지에 의지해 살 수밖에 없고, 토지는 이동할 수 없으며, ‘사’인 지주도 마찬가지였다. 특별한 재능이 없는 한 그들은 조상 대대로 그곳에서 살 수밖에 없었다."
+    },
+    {
+      "id": "s_1789744551554_1otb3",
+      "chinese": "这就是说，由于经济的原因，一家几代人都要生活在一起。",
+      "pinyin": "Zhè jiùshì shuō, yóuyú jīngjì de yuányīn, yī jiā jǐ dài rén dōu yào shēnghuó zài yīqǐ.",
+      "translation": "즉 경제적 이유 때문에 한 집안의 여러 세대가 함께 살게 되었다."
+    },
+    {
+      "id": "s_1789744568392_op879",
+      "chinese": "这样就发展起来了中国的家族制度，它无疑是世界上关系最复杂、组织极有序的制度之一。",
+      "pinyin": "Zhèyàng jiù fāzhǎn qǐlái le Zhōngguó de jiāzú zhìdù, tā wúyí shì shìjiè shàng guānxì zuì fùzá, zǔzhī jí yǒuxù de zhìdù zhī yī.",
+      "translation": "이렇게 해서 중국의 가족 제도가 발전했는데, 그것은 의심할 여지 없이 세계에서 관계가 가장 복잡하고 조직이 매우 질서 정연한 제도 중 하나이다."
+    },
+    {
+      "id": "s_1789744586884_n4x44",
+      "chinese": "在儒家学说中有相当多的内容是论证这种制度合理性的，和对这种社会制度加以理论说明的。",
+      "pinyin": "Zài Rújiā xuéshuō zhōng yǒu xiāngdāng duō de nèiróng shì lùnzhèng zhè zhǒng zhìdù hélǐxìng de, hé duì zhè zhǒng shèhuì zhìdù jiāyǐ lǐlùn shuōmíng de.",
+      "translation": "유가 학설에는 이러한 제도의 합리성을 논증하고, 이러한 사회 제도를 이론적으로 설명하는 내용이 상당히 많다."
+    },
+    {
+      "id": "s_1789744602942_w6yo7",
+      "chinese": "古代家族制度是中国社会制度的直接体现。",
+      "pinyin": "Gǔdài jiāzú zhìdù shì Zhōngguó shèhuì zhìdù de zhíjiē tǐxiàn.",
+      "translation": "고대 가족 제도는 중국 사회 제도의 직접적 구현이다."
+    },
+    {
+      "id": "s_1789744628504_h6x26",
+      "chinese": "传统的五种社会关系：君臣、父子、兄弟、夫妇、朋友，其中三种是家族关系。",
+      "pinyin": "Chuántǒng de wǔ zhǒng shèhuì guānxì: jūnchén, fùzǐ, xiōngdì, fūfù, péngyou, qízhōng sān zhǒng shì jiāzú guānxì.",
+      "translation": "전통적인 다섯 가지 사회 관계, 즉 군신·부자·형제·부부·붕우 가운데 세 가지는 가족 관계이다."
+    },
+    {
+      "id": "s_1789744648137_4ql7v",
+      "chinese": "其余两种，实际是家族关系的扩展，因此也可以按照家族来理解。",
+      "pinyin": "Qíyú liǎng zhǒng, shíjì shì jiāzú guānxì de kuòzhǎn, yīncǐ yě kěyǐ ànzhào jiāzú lái lǐjiě.",
+      "translation": "나머지 두 가지도 실제로는 가족 관계의 확장이므로 가족에 따라 이해할 수 있다."
+    },
+    {
+      "id": "s_1789744667179_6jc9s",
+      "chinese": "君臣关系可以按照父子关系来理解，朋友关系可以按照兄弟关系来理解。",
+      "pinyin": "Jūnchén guānxì kěyǐ ànzhào fùzǐ guānxì lái lǐjiě, péngyou guānxì kěyǐ ànzhào xiōngdì guānxì lái lǐjiě.",
+      "translation": "군신 관계는 부자 관계에 따라 이해할 수 있고, 붕우 관계는 형제 관계에 따라 이해할 수 있다."
+    },
+    {
+      "id": "s_1789744793529_18ail",
+      "chinese": "通常人们也真的是这样来理解的。",
+      "pinyin": "Tōngcháng rénmen yě zhēn de shì zhèyàng lái lǐjiě de.",
+      "translation": "일반적으로 사람들도 정말 그렇게 이해했다."
+    },
+    {
+      "id": "s_1789744810500_vmeey",
+      "chinese": "但是这几种不过是主要的家族关系，另外还有许许多多。",
+      "pinyin": "Dànshì zhè jǐ zhǒng bùguò shì zhǔyào de jiāzú guānxì, lìngwài hái yǒu xǔxǔduōduō.",
+      "translation": "그러나 이 몇 가지는 주요한 가족 관계에 불과하고, 그 밖에도 아주 많다."
+    },
+    {
+      "id": "s_1789744831929_0g3f5",
+      "chinese": "公元前有一部最早的汉语词典《尔雅》，其中表示各种家族关系的名词有一百多个，而大多数在英语里都没有直接相当的词。",
+      "pinyin": "Gōngyuán qián yǒu yī bù zuì zǎo de Hànyǔ cídiǎn 《Ěryǎ》, qízhōng biǎoshì gè zhǒng jiāzú guānxì de míngcí yǒu yībǎi duō gè, ér dàduōshù zài Yīngyǔ lǐ dōu méiyǒu zhíjiē xiāngdāng de cí.",
+      "translation": "기원전에 가장 이른 중국어 사전인 《이아(爾雅)》가 있었는데, 그 안에는 여러 가족 관계를 나타내는 명사가 백여 개가 넘었고, 그 대부분은 영어에 직접 상응하는 말이 없다."
+    },
+    {
+      "id": "s_1789744850017_r8fjv",
+      "chinese": "由于同样的原因，祖先崇拜也发展起来了。",
+      "pinyin": "Yóuyú tóngyàng de yuányīn, zǔxiān chóngbài yě fāzhǎn qǐlái le.",
+      "translation": "같은 이유로 조상 숭배도 발전했다."
+    },
+    {
+      "id": "s_1789744871842_mzf99",
+      "chinese": "居住在某地的一个家族，所崇拜的祖先通常就是这个家族中第一个将全家定居此地的人。",
+      "pinyin": "Jūzhù zài mǒu dì de yī gè jiāzú, suǒ chóngbài de zǔxiān tōngcháng jiùshì zhège jiāzú zhōng dì-yī gè jiāng quánjiā dìngjū cǐdì de rén.",
+      "translation": "어느 지역에 사는 한 가족이 숭배하는 조상은 보통 그 가족 중에서 처음으로 온 가족을 이곳에 정착시킨 사람이다."
+    },
+    {
+      "id": "s_1789744887217_flv9a",
+      "chinese": "这样他就成了这个家族团结的象征，这样的一个象征是一个又大又复杂的组织必不可少的。",
+      "pinyin": "Zhèyàng tā jiù chéng le zhège jiāzú tuánjié de xiàngzhēng, zhèyàng de yī gè xiàngzhēng shì yī gè yòu dà yòu fùzá de zǔzhī bì bùkěshǎo de.",
+      "translation": "이렇게 그는 그 가족의 단결을 상징하게 되었고, 그러한 상징은 크고 복잡한 조직에 반드시 필요한 것이었다."
+    },
+    {
+      "id": "s_1789744903571_unx1s",
+      "chinese": "儒家学说的大部分内容都在论证这种社会制度的合理性，或者是这种制度的理论说明。",
+      "pinyin": "Rújiā xuéshuō de dà bùfen nèiróng dōu zài lùnzhèng zhè zhǒng shèhuì zhìdù de hélǐxìng, huòzhě shì zhè zhǒng zhìdù de lǐlùn shuōmíng.",
+      "translation": "유가 학설의 대부분 내용은 이러한 사회 제도의 합리성을 논증하거나, 이러한 제도에 대한 이론적 설명이다."
+    },
+    {
+      "id": "s_1789744921096_bqieo",
+      "chinese": "经济条件打下了它的基础，儒家学说说明了它的伦理意义。",
+      "pinyin": "Jīngjì tiáojiàn dǎxià le tā de jīchǔ, Rújiā xuéshuō shuōmíng le tā de lúnlǐ yìyì.",
+      "translation": "경제적 조건이 그 기초를 놓았고, 유가 학설은 그 윤리적 의미를 설명했다."
+    },
+    {
+      "id": "s_1789744939838_a5eto",
+      "chinese": "由于这种社会制度是一定的经济条件的产物，而这些条件又是其地理环境的产物，所以对于中华民族来说，这种制度及其理论说明，都是很自然的。",
+      "pinyin": "Yóuyú zhè zhǒng shèhuì zhìdù shì yīdìng de jīngjì tiáojiàn de chǎnwù, ér zhèxiē tiáojiàn yòu shì qí dìlǐ huánjìng de chǎnwù, suǒyǐ duìyú Zhōnghuá mínzú lái shuō, zhè zhǒng zhìdù jí qí lǐlùn shuōmíng, dōu shì hěn zìrán de.",
+      "translation": "이러한 사회 제도는 일정한 경제적 조건의 산물이고, 이러한 조건들은 다시 그 지리적 환경의 산물이므로, 중화민족에게 이러한 제도와 그 이론적 설명은 모두 매우 자연스러운 것이었다."
+    },
+    {
+      "id": "s_1789744958438_cihkc",
+      "chinese": "因此，儒家学说自然而然成为正统哲学。",
+      "pinyin": "Yīncǐ, Rújiā xuéshuō zìrán'érrán chéngwéi zhèngtǒng zhéxué.",
+      "translation": "따라서 유가 학설은 자연스럽게 정통 철학이 되었다."
+    }
+  ],
+  "vocabulary": [],
+  "grammar": [],
+  "quiz": []
+}
